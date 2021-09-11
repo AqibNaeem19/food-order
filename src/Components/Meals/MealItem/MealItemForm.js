@@ -38,7 +38,7 @@ const MealItemForm = (props) => {
         }}
       />
       <button>Add</button>
-      {!amountInputRef && <p>Invalid Value</p>}
+      {!amountIsValid && <p>Invalid Value</p>}
     </form>
   );
 };
