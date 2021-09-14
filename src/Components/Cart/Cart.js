@@ -10,16 +10,15 @@ const Cart = (props) => {
  const hasItems = cartCTX.items.length > 0;
  const totalAmount = `$ ${cartCTX.totalAmount.toFixed(2)}`;
 
- const cartItemRemovehandler = id => {
-
+ const cartItemRemoveHandler = id => {
+    cartCTX.removeItem(id);
  }
-
- const cartItemAddhandler = item => {
-
+ const cartItemAddHandler = item => {
+  cartCTX.addItem({ ...item, amount: 1});
  }
 
   const cartItemsRender = cartCTX.items.map((cartItem) => {
-    return <CartItem key={cartItem.id} name={cartItem.name} amount={cartItem.amount} price={cartItem.price} onRemove={cartItemRemovehandler.bind(null, cartItem.id)} onAdd={cartItemAddhandler.bind(null, cartItem)} />
+    return <CartItem key={cartItem.id} name={cartItem.name} amount={cartItem.amount} price={cartItem.price} onRemove={cartItemRemoveHandler.bind(null, cartItem.id)} onAdd={cartItemAddHandler.bind(null, cartItem)} />
   });
 
   return (
